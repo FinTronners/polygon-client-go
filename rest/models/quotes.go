@@ -1,6 +1,10 @@
 package models
 
-import "time"
+import (
+	"time"
+
+	"github.com/shopspring/decimal"
+)
 
 // ListQuotesParams is the set of parameters for the ListQuotes method.
 type ListQuotesParams struct {
@@ -115,11 +119,11 @@ type GetRealTimeCurrencyConversionResponse struct {
 // Quote is an NBBO for a ticker symbol in a given time range.
 type Quote struct {
 	AskExchange          int     `json:"ask_exchange,omitempty"`
-	AskPrice             float64 `json:"ask_price,omitempty"`
-	AskSize              float64 `json:"ask_size,omitempty"`
+	AskPrice             decimal.Decimal `json:"ask_price,omitempty"`
+	AskSize              decimal.Decimal `json:"ask_size,omitempty"`
 	BidExchange          int     `json:"bid_exchange,omitempty"`
-	BidPrice             float64 `json:"bid_price,omitempty"`
-	BidSize              float64 `json:"bid_size,omitempty"`
+	BidPrice             decimal.Decimal `json:"bid_price,omitempty"`
+	BidSize              decimal.Decimal `json:"bid_size,omitempty"`
 	Conditions           []int32 `json:"conditions,omitempty"`
 	Indicators           []int32 `json:"indicators,omitempty"`
 	ParticipantTimestamp Nanos   `json:"participant_timestamp,omitempty"`
@@ -136,13 +140,13 @@ type LastQuote struct {
 	SequenceNumber       int64   `json:"q,omitempty"`
 	SipTimestamp         Nanos   `json:"t,omitempty"`
 	ParticipantTimestamp Nanos   `json:"y,omitempty"`
-	AskPrice             float64 `json:"P,omitempty"`
-	AskSize              float64 `json:"S,omitempty"`
+	AskPrice             decimal.Decimal `json:"P,omitempty"`
+	AskSize              decimal.Decimal `json:"S,omitempty"`
 	AskExchange          int     `json:"X,omitempty"`
 	Conditions           []int32 `json:"c,omitempty"`
 	Indicators           []int32 `json:"i,omitempty"`
-	BidPrice             float64 `json:"p,omitempty"`
-	BidSize              float64 `json:"s,omitempty"`
+	BidPrice             decimal.Decimal `json:"p,omitempty"`
+	BidSize              decimal.Decimal `json:"s,omitempty"`
 	BidExchange          int     `json:"x,omitempty"`
 	Tape                 int32   `json:"z,omitempty"`
 }

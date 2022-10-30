@@ -1,6 +1,10 @@
 package models
 
-import "time"
+import (
+	"time"
+
+	"github.com/shopspring/decimal"
+)
 
 // ListTradesParams is the set of parameters for the ListTrades method.
 type ListTradesParams struct {
@@ -122,9 +126,9 @@ type LastTrade struct {
 	Conditions           []int32 `json:"c,omitempty"`
 	Correction           uint32  `json:"e,omitempty"`
 	ID                   string  `json:"i,omitempty"`
-	Price                float64 `json:"p,omitempty"`
+	Price                decimal.Decimal `json:"p,omitempty"`
 	TRF                  int32   `json:"r,omitempty"`
-	Size                 float64 `json:"s,omitempty"`
+	Size                 decimal.Decimal `json:"s,omitempty"`
 	Exchange             int32   `json:"x,omitempty"`
 	Tape                 int32   `json:"z,omitempty"`
 }
