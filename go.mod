@@ -9,10 +9,11 @@ require (
 	github.com/go-resty/resty/v2 v2.11.0
 	github.com/gorilla/websocket v1.5.1
 	github.com/jarcoal/httpmock v1.3.1
-	github.com/shopspring/decimal v1.3.1
+	github.com/shopspring/decimal v1.4.0
 	github.com/sirupsen/logrus v1.9.3
 	github.com/stretchr/testify v1.9.0
 	golang.org/x/exp v0.0.0-20220414153411-bcd21879b8fd
+	golang.org/x/time v0.8.0
 	gopkg.in/tomb.v2 v2.0.0-20161208151619-d5d1b5820637
 )
 

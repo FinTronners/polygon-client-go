@@ -9,6 +9,7 @@ import (
 	"github.com/go-resty/resty/v2"
 	"github.com/polygon-io/client-go/rest/encoder"
 	"github.com/polygon-io/client-go/rest/models"
+	"golang.org/x/time/rate"
 )
 
 const clientVersion = "v1.16.0"
@@ -16,7 +17,11 @@ const clientVersion = "v1.16.0"
 const (
 	APIURL            = "https://api.polygon.io"
 	DefaultRetryCount = 3
+	RPSLimit          = 100
+	Burst             = 10
 )
+
+var limiter = rate.NewLimiter(RPSLimit, Burst)
 
 // Client defines an HTTP client for the Polygon REST API.
 type Client struct {
@@ -45,6 +50,9 @@ func newClient(apiKey string, hc *http.Client) Client {
 	c.SetBaseURL(APIURL)
 	c.SetAuthToken(apiKey)
 	c.SetRetryCount(DefaultRetryCount)
+	c.AddRetryHook(func(r *resty.Response, err error) {
+		_ = limiter.Wait(r.Request.Context())
+	})
 	c.SetTimeout(10 * time.Second)
 	c.SetHeader("User-Agent", fmt.Sprintf("Polygon.io GoClient/%v", clientVersion))
 	c.SetHeader("Accept-Encoding", "gzip")
@@ -75,6 +83,11 @@ func (c *Client) CallURL(ctx context.Context, method, uri string, response any, 
 	req.SetQueryParamsFromValues(options.QueryParams)
 	req.SetHeaderMultiValues(options.Headers)
 	req.SetResult(response).SetError(&models.ErrorResponse{})
+
+	err := limiter.Wait(ctx)
+	if err != nil {
+		return fmt.Errorf("client side throttling failed with %v", err)
+	}
 
 	res, err := req.Execute(method, uri)
 	if err != nil {
