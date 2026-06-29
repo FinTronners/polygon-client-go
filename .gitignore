@@ -16,3 +16,9 @@ vendor/
 
 # IntelliJ project settings
 .idea
+
+# direnv
+.envrc
+
+#asdf
+.tool-versions

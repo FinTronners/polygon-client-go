@@ -34,6 +34,9 @@ rm -f /tmp/openapi-fixed.json
 # Post-process: fixing P/p, S/s, T/t, X/x clashes in anonymous structs...
 node scripts/fix-go-clashes.js
 
+# Post-process: convert price/size fields to decimal.Decimal
+node scripts/fix-decimal-types.js
+
 echo "Generation finished!"
 echo "   → Full log saved to generation.log"
 echo "   → Generated files are in ./gen/"

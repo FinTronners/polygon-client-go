@@ -15,6 +15,7 @@ import (
 
 	"github.com/oapi-codegen/runtime"
 	openapi_types "github.com/oapi-codegen/runtime/types"
+	"github.com/shopspring/decimal"
 )
 
 const (
@@ -50041,7 +50042,7 @@ type GetFuturesV1QuotesResponse struct {
 		// Results The results for this request.
 		Results []struct {
 			// AskPrice The ask price is expressed per unit of the underlying asset, and you apply the contract multiplier to get the full contract value.
-			AskPrice *float64 `json:"ask_price,omitempty"`
+			AskPrice *decimal.Decimal `json:"ask_price,omitempty"`
 
 			// AskSize The quote size represents the number of futures contracts available at the given ask price.
 			AskSize *int32 `json:"ask_size,omitempty"`
@@ -50050,7 +50051,7 @@ type GetFuturesV1QuotesResponse struct {
 			AskTimestamp *int64 `json:"ask_timestamp,omitempty"`
 
 			// BidPrice The bid price is expressed per unit of the underlying asset, and you apply the contract multiplier to get the full contract value.
-			BidPrice *float64 `json:"bid_price,omitempty"`
+			BidPrice *decimal.Decimal `json:"bid_price,omitempty"`
 
 			// BidSize The quote size represents the number of futures contracts available at the given bid price.
 			BidSize *int32 `json:"bid_size,omitempty"`
@@ -50245,7 +50246,7 @@ type GetFuturesV1SnapshotResponse struct {
 				LastUpdated *int64 `json:"last_updated,omitempty"`
 
 				// Price The price of the trade. This is the actual dollar value per whole contract of this trade. A trade of 100 contracts with a price of $2.00 would be worth a total dollar value of $200.00.
-				Price *float64 `json:"price,omitempty"`
+				Price *decimal.Decimal `json:"price,omitempty"`
 
 				// Size The total number of contracts exchanged between buyers and sellers on a given trade.
 				Size *int64 `json:"size,omitempty"`
@@ -50332,7 +50333,7 @@ type GetFuturesV1TradesResponse struct {
 			Channel int32 `json:"channel"`
 
 			// Price The price of the trade. This is the actual dollar value per whole contract of this trade. A trade of 100 contracts with a price of $2.00 would be worth a total dollar value of $200.00.
-			Price *float64 `json:"price,omitempty"`
+			Price *decimal.Decimal `json:"price,omitempty"`
 
 			// ReportSequence The reporting sequence number.
 			ReportSequence int64 `json:"report_sequence"`
@@ -50789,7 +50790,7 @@ type GetFuturesVXQuotesResponse struct {
 		// Results The results for this request.
 		Results []struct {
 			// AskPrice The ask price is expressed per unit of the underlying asset, and you apply the contract multiplier to get the full contract value.
-			AskPrice *float64 `json:"ask_price,omitempty"`
+			AskPrice *decimal.Decimal `json:"ask_price,omitempty"`
 
 			// AskSize The quote size represents the number of futures contracts available at the given ask price.
 			AskSize *int32 `json:"ask_size,omitempty"`
@@ -50798,7 +50799,7 @@ type GetFuturesVXQuotesResponse struct {
 			AskTimestamp *int64 `json:"ask_timestamp,omitempty"`
 
 			// BidPrice The bid price is expressed per unit of the underlying asset, and you apply the contract multiplier to get the full contract value.
-			BidPrice *float64 `json:"bid_price,omitempty"`
+			BidPrice *decimal.Decimal `json:"bid_price,omitempty"`
 
 			// BidSize The quote size represents the number of futures contracts available at the given bid price.
 			BidSize *int32 `json:"bid_size,omitempty"`
@@ -50993,7 +50994,7 @@ type GetFuturesVXSnapshotResponse struct {
 				LastUpdated *int64 `json:"last_updated,omitempty"`
 
 				// Price The price of the trade. This is the actual dollar value per whole contract of this trade. A trade of 100 contracts with a price of $2.00 would be worth a total dollar value of $200.00.
-				Price *float64 `json:"price,omitempty"`
+				Price *decimal.Decimal `json:"price,omitempty"`
 
 				// Size The total number of contracts exchanged between buyers and sellers on a given trade.
 				Size *int64 `json:"size,omitempty"`
@@ -51080,7 +51081,7 @@ type GetFuturesVXTradesResponse struct {
 			Channel int32 `json:"channel"`
 
 			// Price The price of the trade. This is the actual dollar value per whole contract of this trade. A trade of 100 contracts with a price of $2.00 would be worth a total dollar value of $200.00.
-			Price *float64 `json:"price,omitempty"`
+			Price *decimal.Decimal `json:"price,omitempty"`
 
 			// ReportSequence The reporting sequence number.
 			ReportSequence int64 `json:"report_sequence"`
@@ -52388,7 +52389,7 @@ type GetStocksFinancialsV1RatiosResponse struct {
 			MarketCap *float64 `json:"market_cap,omitempty"`
 
 			// Price Stock price used in ratio calculations, typically the closing price for the given date.
-			Price *float64 `json:"price,omitempty"`
+			Price *decimal.Decimal `json:"price,omitempty"`
 
 			// PriceToBook Price-to-book ratio, calculated as stock price divided by book value per share, comparing market value to book value.
 			PriceToBook *float64 `json:"price_to_book,omitempty"`
@@ -53111,10 +53112,10 @@ type DeprecatedGetHistoricCryptoTradesResponse struct {
 			// P The price of the trade. This is the actual dollar value per whole share of
 			// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 			// total dollar value of $200.00.
-			BidPrice float64 `json:"p"`
+			BidPrice decimal.Decimal `json:"p"`
 
 			// S The size of a trade (also known as volume).
-			BidSize float64 `json:"s"`
+			BidSize decimal.Decimal `json:"s"`
 
 			// T The Unix millisecond timestamp for the start of the aggregate window.
 			Timestamp int `json:"t"`
@@ -54819,10 +54820,10 @@ type GetLastCryptoTradeResponse struct {
 			// Price The price of the trade. This is the actual dollar value per whole share of
 			// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 			// total dollar value of $200.00.
-			Price float64 `json:"price"`
+			Price decimal.Decimal `json:"price"`
 
 			// Size The size of a trade (also known as volume).
-			Size float64 `json:"size"`
+			Size decimal.Decimal `json:"size"`
 
 			// Timestamp The Unix millisecond timestamp.
 			Timestamp int `json:"timestamp"`
@@ -55050,10 +55051,10 @@ type GetCryptoOpenCloseResponse struct {
 			// P The price of the trade. This is the actual dollar value per whole share of
 			// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 			// total dollar value of $200.00.
-			BidPrice float64 `json:"p"`
+			BidPrice decimal.Decimal `json:"p"`
 
 			// S The size of a trade (also known as volume).
-			BidSize float64 `json:"s"`
+			BidSize decimal.Decimal `json:"s"`
 
 			// T The Unix millisecond timestamp for the start of the aggregate window.
 			Timestamp int `json:"t"`
@@ -55086,10 +55087,10 @@ type GetCryptoOpenCloseResponse struct {
 			// P The price of the trade. This is the actual dollar value per whole share of
 			// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 			// total dollar value of $200.00.
-			BidPrice float64 `json:"p"`
+			BidPrice decimal.Decimal `json:"p"`
 
 			// S The size of a trade (also known as volume).
-			BidSize float64 `json:"s"`
+			BidSize decimal.Decimal `json:"s"`
 
 			// T The Unix millisecond timestamp for the start of the aggregate window.
 			Timestamp int `json:"t"`
@@ -55476,7 +55477,7 @@ type GetSnapshotSummaryResponse struct {
 			} `json:"options,omitempty"`
 
 			// Price The most up to date ticker price.
-			Price *float64 `json:"price,omitempty"`
+			Price *decimal.Decimal `json:"price,omitempty"`
 
 			// Session Comprehensive trading session metrics, detailing price changes, trading volume, and key price points (open, close, high, low) for the asset within the current trading day. Includes specific changes during early, regular, and late trading periods to enable detailed performance analysis and trend tracking.
 			Session *struct {
@@ -55517,7 +55518,7 @@ type GetSnapshotSummaryResponse struct {
 				PreviousClose float64 `json:"previous_close"`
 
 				// Price The price of the most recent trade or bid price for this asset.
-				Price *float64 `json:"price,omitempty"`
+				Price *decimal.Decimal `json:"price,omitempty"`
 
 				// RegularTradingChange Today's change in regular trading hours, difference between current price and previous trading day's close, otherwise difference between today's close and previous day's close.
 				RegularTradingChange *float64 `json:"regular_trading_change,omitempty"`
@@ -56443,7 +56444,7 @@ type GetLastStocksQuoteResponse struct {
 		RequestId string `json:"request_id"`
 		Results   *struct {
 			// P The ask price.
-			AskPrice *float64 `json:"P,omitempty"`
+			AskPrice *decimal.Decimal `json:"P,omitempty"`
 
 			// S The total number of shares available for sale at the current ask price.
 			AskSize *int `json:"S,omitempty"`
@@ -56464,7 +56465,7 @@ type GetLastStocksQuoteResponse struct {
 			I *[]int32 `json:"i,omitempty"`
 
 			// P The bid price.
-			BidPrice *float64 `json:"p,omitempty"`
+			BidPrice *decimal.Decimal `json:"p,omitempty"`
 
 			// Q The sequence number represents the sequence in which message events happened.
 			// These are increasing and unique per ticker symbol, but will not always be
@@ -56539,7 +56540,7 @@ type GetLastOptionsTradeResponse struct {
 			// P The price of the trade. This is the actual dollar value per whole share of
 			// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 			// total dollar value of $200.00.
-			BidPrice float64 `json:"p"`
+			BidPrice decimal.Decimal `json:"p"`
 
 			// Q The sequence number represents the sequence in which message events happened.
 			// These are increasing and unique per ticker symbol, but will not always be
@@ -56550,7 +56551,7 @@ type GetLastOptionsTradeResponse struct {
 			R *int `json:"r,omitempty"`
 
 			// S The size of a trade (also known as volume).
-			BidSize *float64 `json:"s,omitempty"`
+			BidSize *decimal.Decimal `json:"s,omitempty"`
 
 			// T The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this message from the exchange which produced it.
 			Timestamp int `json:"t"`
@@ -56620,7 +56621,7 @@ type GetLastStocksTradeResponse struct {
 			// P The price of the trade. This is the actual dollar value per whole share of
 			// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 			// total dollar value of $200.00.
-			BidPrice float64 `json:"p"`
+			BidPrice decimal.Decimal `json:"p"`
 
 			// Q The sequence number represents the sequence in which message events happened.
 			// These are increasing and unique per ticker symbol, but will not always be
@@ -56631,7 +56632,7 @@ type GetLastStocksTradeResponse struct {
 			R *int `json:"r,omitempty"`
 
 			// S The size of a trade (also known as volume).
-			BidSize *float64 `json:"s,omitempty"`
+			BidSize *decimal.Decimal `json:"s,omitempty"`
 
 			// T The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this message from the exchange which produced it.
 			Timestamp int `json:"t"`
@@ -56814,10 +56815,10 @@ type GetCryptoSnapshotTickersResponse struct {
 				// P The price of the trade. This is the actual dollar value per whole share of
 				// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 				// total dollar value of $200.00.
-				BidPrice float64 `json:"p"`
+				BidPrice decimal.Decimal `json:"p"`
 
 				// S The size (volume) of the trade.
-				BidSize float32 `json:"s"`
+				BidSize decimal.Decimal `json:"s"`
 
 				// T The millisecond accuracy timestamp. This is the timestamp of when the trade was generated at the exchange.
 				Timestamp int `json:"t"`
@@ -56957,10 +56958,10 @@ type GetCryptoSnapshotTickerResponse struct {
 				// P The price of the trade. This is the actual dollar value per whole share of
 				// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 				// total dollar value of $200.00.
-				BidPrice float64 `json:"p"`
+				BidPrice decimal.Decimal `json:"p"`
 
 				// S The size (volume) of the trade.
-				BidSize float32 `json:"s"`
+				BidSize decimal.Decimal `json:"s"`
 
 				// T The millisecond accuracy timestamp. This is the timestamp of when the trade was generated at the exchange.
 				Timestamp int `json:"t"`
@@ -57060,7 +57061,7 @@ type DeprecatedGetCryptoSnapshotTickerBookResponse struct {
 			AskCount float64 `json:"askCount"`
 			Asks     []struct {
 				// P The price of this book level.
-				BidPrice float64 `json:"p"`
+				BidPrice decimal.Decimal `json:"p"`
 
 				// X A map of the exchange ID to number of shares at this price level.
 				// <br />
@@ -57085,7 +57086,7 @@ type DeprecatedGetCryptoSnapshotTickerBookResponse struct {
 			BidCount float64 `json:"bidCount"`
 			Bids     []struct {
 				// P The price of this book level.
-				BidPrice float64 `json:"p"`
+				BidPrice decimal.Decimal `json:"p"`
 
 				// X A map of the exchange ID to number of shares at this price level.
 				// <br />
@@ -57180,10 +57181,10 @@ type GetCryptoSnapshotDirectionResponse struct {
 				// P The price of the trade. This is the actual dollar value per whole share of
 				// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 				// total dollar value of $200.00.
-				BidPrice float64 `json:"p"`
+				BidPrice decimal.Decimal `json:"p"`
 
 				// S The size (volume) of the trade.
-				BidSize float32 `json:"s"`
+				BidSize decimal.Decimal `json:"s"`
 
 				// T The millisecond accuracy timestamp. This is the timestamp of when the trade was generated at the exchange.
 				Timestamp int `json:"t"`
@@ -57687,13 +57688,13 @@ type GetStocksSnapshotTickersResponse struct {
 			// LastQuote The most recent quote for this ticker.  This is only returned if your current plan includes quotes.
 			LastQuote *struct {
 				// P The ask price.
-				AskPrice float64 `json:"P"`
+				AskPrice decimal.Decimal `json:"P"`
 
 				// S The ask size in lots.
 				AskSize int `json:"S"`
 
 				// P The bid price.
-				BidPrice float64 `json:"p"`
+				BidPrice decimal.Decimal `json:"p"`
 
 				// S The bid size in lots.
 				BidSize int `json:"s"`
@@ -57719,7 +57720,7 @@ type GetStocksSnapshotTickersResponse struct {
 				// P The price of the trade. This is the actual dollar value per whole share of
 				// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 				// total dollar value of $200.00.
-				BidPrice float64 `json:"p"`
+				BidPrice decimal.Decimal `json:"p"`
 
 				// S The size (volume) of the trade.
 				BidSize int `json:"s"`
@@ -57871,13 +57872,13 @@ type GetStocksSnapshotTickerResponse struct {
 			// LastQuote The most recent quote for this ticker.  This is only returned if your current plan includes quotes.
 			LastQuote *struct {
 				// P The ask price.
-				AskPrice float64 `json:"P"`
+				AskPrice decimal.Decimal `json:"P"`
 
 				// S The ask size in lots.
 				AskSize int `json:"S"`
 
 				// P The bid price.
-				BidPrice float64 `json:"p"`
+				BidPrice decimal.Decimal `json:"p"`
 
 				// S The bid size in lots.
 				BidSize int `json:"s"`
@@ -57903,7 +57904,7 @@ type GetStocksSnapshotTickerResponse struct {
 				// P The price of the trade. This is the actual dollar value per whole share of
 				// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 				// total dollar value of $200.00.
-				BidPrice float64 `json:"p"`
+				BidPrice decimal.Decimal `json:"p"`
 
 				// S The size (volume) of the trade.
 				BidSize int `json:"s"`
@@ -58052,13 +58053,13 @@ type GetStocksSnapshotDirectionResponse struct {
 			// LastQuote The most recent quote for this ticker.  This is only returned if your current plan includes quotes.
 			LastQuote *struct {
 				// P The ask price.
-				AskPrice float64 `json:"P"`
+				AskPrice decimal.Decimal `json:"P"`
 
 				// S The ask size in lots.
 				AskSize int `json:"S"`
 
 				// P The bid price.
-				BidPrice float64 `json:"p"`
+				BidPrice decimal.Decimal `json:"p"`
 
 				// S The bid size in lots.
 				BidSize int `json:"s"`
@@ -58084,7 +58085,7 @@ type GetStocksSnapshotDirectionResponse struct {
 				// P The price of the trade. This is the actual dollar value per whole share of
 				// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 				// total dollar value of $200.00.
-				BidPrice float64 `json:"p"`
+				BidPrice decimal.Decimal `json:"p"`
 
 				// S The size (volume) of the trade.
 				BidSize int `json:"s"`
@@ -58227,7 +58228,7 @@ type DeprecatedGetHistoricStocksQuotesResponse struct {
 			Y int `json:"y"`
 			// Embedded fields due to inline allOf schema
 			// P The ask price.
-			AskPrice float64 `json:"P"`
+			AskPrice decimal.Decimal `json:"P"`
 
 			// S The ask size. This represents the number of round lot orders at the given ask price. The normal round lot size is 100 shares. An ask size of 2 means there are 200 shares available to purchase at the given ask price.
 			AskSize int `json:"S"`
@@ -58243,7 +58244,7 @@ type DeprecatedGetHistoricStocksQuotesResponse struct {
 			I []int `json:"i"`
 
 			// P The bid price.
-			BidPrice float64 `json:"p"`
+			BidPrice decimal.Decimal `json:"p"`
 
 			// S The bid size. This represents the number of round lot orders at the given bid price. The normal round lot size is 100 shares. A bid size of 2 means there are 200 shares for purchase at the given bid price.
 			BidSize int `json:"s"`
@@ -58327,13 +58328,13 @@ type DeprecatedGetHistoricStocksTradesResponse struct {
 			// P The price of the trade. This is the actual dollar value per whole share of
 			// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 			// total dollar value of $200.00.
-			BidPrice float64 `json:"p"`
+			BidPrice decimal.Decimal `json:"p"`
 
 			// R The ID for the Trade Reporting Facility where the trade took place.
 			R int `json:"r"`
 
 			// S The size of a trade (also known as volume).
-			BidSize float64 `json:"s"`
+			BidSize decimal.Decimal `json:"s"`
 
 			// X The exchange ID. See <a href="https://massive.com/docs/rest/stocks/market-operations/exchanges" alt="Exchanges">Exchanges</a> for Massive's mapping of exchange IDs.
 			BidExchange int `json:"x"`
@@ -58379,13 +58380,13 @@ type GetForexQuotesResponse struct {
 			AskExchange *int `json:"ask_exchange,omitempty"`
 
 			// AskPrice The ask price.
-			AskPrice *float64 `json:"ask_price,omitempty"`
+			AskPrice *decimal.Decimal `json:"ask_price,omitempty"`
 
 			// BidExchange The bid exchange ID
 			BidExchange *int `json:"bid_exchange,omitempty"`
 
 			// BidPrice The bid price.
-			BidPrice *float64 `json:"bid_price,omitempty"`
+			BidPrice *decimal.Decimal `json:"bid_price,omitempty"`
 
 			// ParticipantTimestamp The nanosecond Exchange Unix Timestamp. This is the timestamp of when the quote was generated at the exchange.
 			ParticipantTimestamp int64 `json:"participant_timestamp"`
@@ -58428,19 +58429,19 @@ type GetOptionsQuotesResponse struct {
 			AskExchange *int `json:"ask_exchange,omitempty"`
 
 			// AskPrice The ask price.
-			AskPrice *float64 `json:"ask_price,omitempty"`
+			AskPrice *decimal.Decimal `json:"ask_price,omitempty"`
 
 			// AskSize The ask size. This represents the number of round lot orders at the given ask price. The normal round lot size is 100 shares. An ask size of 2 means there are 200 shares available to purchase at the given ask price.
-			AskSize *float64 `json:"ask_size,omitempty"`
+			AskSize *decimal.Decimal `json:"ask_size,omitempty"`
 
 			// BidExchange The bid exchange ID
 			BidExchange *int `json:"bid_exchange,omitempty"`
 
 			// BidPrice The bid price.
-			BidPrice *float64 `json:"bid_price,omitempty"`
+			BidPrice *decimal.Decimal `json:"bid_price,omitempty"`
 
 			// BidSize The bid size. This represents the number of round lot orders at the given bid price. The normal round lot size is 100 shares. A bid size of 2 means there are 200 shares for purchase at the given bid price.
-			BidSize *float64 `json:"bid_size,omitempty"`
+			BidSize *decimal.Decimal `json:"bid_size,omitempty"`
 
 			// SequenceNumber The sequence number represents the sequence in which quote events happened.
 			// These are increasing and unique per ticker symbol, but will not always be
@@ -58488,19 +58489,19 @@ type GetStocksQuotesResponse struct {
 			AskExchange *int `json:"ask_exchange,omitempty"`
 
 			// AskPrice The ask price.
-			AskPrice *float64 `json:"ask_price,omitempty"`
+			AskPrice *decimal.Decimal `json:"ask_price,omitempty"`
 
 			// AskSize The total number of shares available for sale at the current ask price.
-			AskSize *float64 `json:"ask_size,omitempty"`
+			AskSize *decimal.Decimal `json:"ask_size,omitempty"`
 
 			// BidExchange The bid exchange ID
 			BidExchange *int `json:"bid_exchange,omitempty"`
 
 			// BidPrice The bid price.
-			BidPrice *float64 `json:"bid_price,omitempty"`
+			BidPrice *decimal.Decimal `json:"bid_price,omitempty"`
 
 			// BidSize The total number of shares that buyers want to purchase at the current bid price.
-			BidSize *float64 `json:"bid_size,omitempty"`
+			BidSize *decimal.Decimal `json:"bid_size,omitempty"`
 
 			// Conditions A list of condition codes.
 			Conditions *[]int32 `json:"conditions,omitempty"`
@@ -59589,7 +59590,7 @@ type GetSnapshotsResponse struct {
 				AskExchange *int `json:"ask_exchange,omitempty"`
 
 				// AskSize The ask size. This represents the number of round lot orders at the given ask price. The normal round lot size is 100 shares. An ask size of 2 means there are 200 shares available to purchase at the given ask price.
-				AskSize *float64 `json:"ask_size,omitempty"`
+				AskSize *decimal.Decimal `json:"ask_size,omitempty"`
 
 				// Bid The bid price.
 				Bid float64 `json:"bid"`
@@ -59598,7 +59599,7 @@ type GetSnapshotsResponse struct {
 				BidExchange *int `json:"bid_exchange,omitempty"`
 
 				// BidSize The bid size. This represents the number of round lot orders at the given bid price. The normal round lot size is 100 shares. A bid size of 2 means there are 200 shares for purchase at the given bid price.
-				BidSize *float64 `json:"bid_size,omitempty"`
+				BidSize *decimal.Decimal `json:"bid_size,omitempty"`
 
 				// LastUpdated The nanosecond timestamp of when this information was updated.
 				LastUpdated int64 `json:"last_updated"`
@@ -59633,7 +59634,7 @@ type GetSnapshotsResponse struct {
 				// Price The price of the trade. This is the actual dollar value per whole share of
 				// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 				// total dollar value of $200.00.
-				Price float64 `json:"price"`
+				Price decimal.Decimal `json:"price"`
 
 				// SipTimestamp The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this trade from the exchange which produced it.
 				SipTimestamp *int64 `json:"sip_timestamp,omitempty"`
@@ -59700,7 +59701,7 @@ type GetSnapshotsResponse struct {
 				PreviousClose float64 `json:"previous_close"`
 
 				// Price The price of the most recent trade or bid price for this asset.
-				Price *float64 `json:"price,omitempty"`
+				Price *decimal.Decimal `json:"price,omitempty"`
 
 				// RegularTradingChange Today's change in regular trading hours, difference between current price and previous trading day's close, otherwise difference between today's close and previous day's close.
 				RegularTradingChange *float64 `json:"regular_trading_change,omitempty"`
@@ -59730,7 +59731,7 @@ type GetSnapshotsResponse struct {
 				LastUpdated *int64 `json:"last_updated,omitempty"`
 
 				// Price The price of the trade. This is the actual dollar value per whole share of this trade. A trade of 100 shares with a price of $2.00 would be worth a total dollar value of $200.00.
-				Price *float64 `json:"price,omitempty"`
+				Price *decimal.Decimal `json:"price,omitempty"`
 
 				// Ticker The ticker symbol for the contract's underlying asset.
 				Ticker string `json:"ticker"`
@@ -59967,7 +59968,7 @@ type GetOptionsChainResponse struct {
 				AskExchange *int32 `json:"ask_exchange,omitempty"`
 
 				// AskSize The ask size.
-				AskSize float64 `json:"ask_size"`
+				AskSize decimal.Decimal `json:"ask_size"`
 
 				// Bid The bid price.
 				Bid float64 `json:"bid"`
@@ -59976,7 +59977,7 @@ type GetOptionsChainResponse struct {
 				BidExchange *int32 `json:"bid_exchange,omitempty"`
 
 				// BidSize The bid size.
-				BidSize float64 `json:"bid_size"`
+				BidSize decimal.Decimal `json:"bid_size"`
 
 				// LastUpdated The nanosecond timestamp of when this information was updated.
 				LastUpdated *int64 `json:"last_updated,omitempty"`
@@ -59999,7 +60000,7 @@ type GetOptionsChainResponse struct {
 				// Price The price of the trade. This is the actual dollar value per whole share of
 				// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 				// total dollar value of $200.00.
-				Price float64 `json:"price"`
+				Price decimal.Decimal `json:"price"`
 
 				// SipTimestamp The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this trade from the exchange which produced it.
 				SipTimestamp int64 `json:"sip_timestamp"`
@@ -60023,7 +60024,7 @@ type GetOptionsChainResponse struct {
 				LastUpdated *int64 `json:"last_updated,omitempty"`
 
 				// Price The price of the trade. This is the actual dollar value per whole share of this trade. A trade of 100 shares with a price of $2.00 would be worth a total dollar value of $200.00.
-				Price *float64 `json:"price,omitempty"`
+				Price *decimal.Decimal `json:"price,omitempty"`
 
 				// Ticker The ticker symbol for the contract's underlying asset.
 				Ticker string `json:"ticker"`
@@ -60168,7 +60169,7 @@ type GetOptionContractResponse struct {
 				AskExchange *int32 `json:"ask_exchange,omitempty"`
 
 				// AskSize The ask size.
-				AskSize float64 `json:"ask_size"`
+				AskSize decimal.Decimal `json:"ask_size"`
 
 				// Bid The bid price.
 				Bid float64 `json:"bid"`
@@ -60177,7 +60178,7 @@ type GetOptionContractResponse struct {
 				BidExchange *int32 `json:"bid_exchange,omitempty"`
 
 				// BidSize The bid size.
-				BidSize float64 `json:"bid_size"`
+				BidSize decimal.Decimal `json:"bid_size"`
 
 				// LastUpdated The nanosecond timestamp of when this information was updated.
 				LastUpdated *int64 `json:"last_updated,omitempty"`
@@ -60200,7 +60201,7 @@ type GetOptionContractResponse struct {
 				// Price The price of the trade. This is the actual dollar value per whole share of
 				// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 				// total dollar value of $200.00.
-				Price float64 `json:"price"`
+				Price decimal.Decimal `json:"price"`
 
 				// SipTimestamp The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this trade from the exchange which produced it.
 				SipTimestamp int64 `json:"sip_timestamp"`
@@ -60224,7 +60225,7 @@ type GetOptionContractResponse struct {
 				LastUpdated *int64 `json:"last_updated,omitempty"`
 
 				// Price The price of the trade. This is the actual dollar value per whole share of this trade. A trade of 100 shares with a price of $2.00 would be worth a total dollar value of $200.00.
-				Price *float64 `json:"price,omitempty"`
+				Price *decimal.Decimal `json:"price,omitempty"`
 
 				// Ticker The ticker symbol for the contract's underlying asset.
 				Ticker string `json:"ticker"`
@@ -60288,13 +60289,13 @@ type GetCryptoTradesResponse struct {
 			ParticipantTimestamp *int64 `json:"participant_timestamp,omitempty"`
 
 			// Price The price of the trade in the base currency of the crypto pair.
-			Price float64 `json:"price"`
+			Price decimal.Decimal `json:"price"`
 
 			// ReceivedTimestamp The nanosecond accuracy timestamp of when the tick was received by Massive.
 			ReceivedTimestamp *int64 `json:"received_timestamp,omitempty"`
 
 			// Size The size of a trade (also known as volume).
-			Size float64 `json:"size"`
+			Size decimal.Decimal `json:"size"`
 		} `json:"results,omitempty"`
 
 		// Status The status of this request's response.
@@ -60345,7 +60346,7 @@ type GetOptionsTradesResponse struct {
 			// Price The price of the trade. This is the actual dollar value per whole share of
 			// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 			// total dollar value of $200.00.
-			Price float64 `json:"price"`
+			Price decimal.Decimal `json:"price"`
 
 			// SequenceNumber The sequence number represents the sequence in which message events happened. These are increasing and unique per ticker symbol, but will not always be consecutive (e.g. 1, 2, 6, 9, 10, 11).
 			SequenceNumber *int64 `json:"sequence_number,omitempty"`
@@ -60354,7 +60355,7 @@ type GetOptionsTradesResponse struct {
 			SipTimestamp int64 `json:"sip_timestamp"`
 
 			// Size The size of a trade (also known as volume).
-			Size float64 `json:"size"`
+			Size decimal.Decimal `json:"size"`
 		} `json:"results,omitempty"`
 
 		// Status The status of this request's response.
@@ -60414,7 +60415,7 @@ type GetStocksTradesResponse struct {
 			// Price The price of the trade. This is the actual dollar value per whole share of
 			// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 			// total dollar value of $200.00.
-			Price float64 `json:"price"`
+			Price decimal.Decimal `json:"price"`
 
 			// SequenceNumber The sequence number represents the sequence in which trade events happened.
 			// These are increasing and unique per ticker symbol, but will not always be
@@ -60425,7 +60426,7 @@ type GetStocksTradesResponse struct {
 			SipTimestamp int64 `json:"sip_timestamp"`
 
 			// Size The size of a trade (also known as volume).
-			Size float64 `json:"size"`
+			Size decimal.Decimal `json:"size"`
 
 			// Tape There are 3 tapes which define which exchange the ticker is listed on. These are integers in our objects which represent the letter of the alphabet. Eg: 1 = A, 2 = B, 3 = C.
 			// * Tape A is NYSE listed securities
@@ -64800,7 +64801,7 @@ func ParseGetFuturesV1QuotesResponse(rsp *http.Response) (*GetFuturesV1QuotesRes
 			// Results The results for this request.
 			Results []struct {
 				// AskPrice The ask price is expressed per unit of the underlying asset, and you apply the contract multiplier to get the full contract value.
-				AskPrice *float64 `json:"ask_price,omitempty"`
+				AskPrice *decimal.Decimal `json:"ask_price,omitempty"`
 
 				// AskSize The quote size represents the number of futures contracts available at the given ask price.
 				AskSize *int32 `json:"ask_size,omitempty"`
@@ -64809,7 +64810,7 @@ func ParseGetFuturesV1QuotesResponse(rsp *http.Response) (*GetFuturesV1QuotesRes
 				AskTimestamp *int64 `json:"ask_timestamp,omitempty"`
 
 				// BidPrice The bid price is expressed per unit of the underlying asset, and you apply the contract multiplier to get the full contract value.
-				BidPrice *float64 `json:"bid_price,omitempty"`
+				BidPrice *decimal.Decimal `json:"bid_price,omitempty"`
 
 				// BidSize The quote size represents the number of futures contracts available at the given bid price.
 				BidSize *int32 `json:"bid_size,omitempty"`
@@ -65020,7 +65021,7 @@ func ParseGetFuturesV1SnapshotResponse(rsp *http.Response) (*GetFuturesV1Snapsho
 					LastUpdated *int64 `json:"last_updated,omitempty"`
 
 					// Price The price of the trade. This is the actual dollar value per whole contract of this trade. A trade of 100 contracts with a price of $2.00 would be worth a total dollar value of $200.00.
-					Price *float64 `json:"price,omitempty"`
+					Price *decimal.Decimal `json:"price,omitempty"`
 
 					// Size The total number of contracts exchanged between buyers and sellers on a given trade.
 					Size *int64 `json:"size,omitempty"`
@@ -65115,7 +65116,7 @@ func ParseGetFuturesV1TradesResponse(rsp *http.Response) (*GetFuturesV1TradesRes
 				Channel int32 `json:"channel"`
 
 				// Price The price of the trade. This is the actual dollar value per whole contract of this trade. A trade of 100 contracts with a price of $2.00 would be worth a total dollar value of $200.00.
-				Price *float64 `json:"price,omitempty"`
+				Price *decimal.Decimal `json:"price,omitempty"`
 
 				// ReportSequence The reporting sequence number.
 				ReportSequence int64 `json:"report_sequence"`
@@ -65616,7 +65617,7 @@ func ParseGetFuturesVXQuotesResponse(rsp *http.Response) (*GetFuturesVXQuotesRes
 			// Results The results for this request.
 			Results []struct {
 				// AskPrice The ask price is expressed per unit of the underlying asset, and you apply the contract multiplier to get the full contract value.
-				AskPrice *float64 `json:"ask_price,omitempty"`
+				AskPrice *decimal.Decimal `json:"ask_price,omitempty"`
 
 				// AskSize The quote size represents the number of futures contracts available at the given ask price.
 				AskSize *int32 `json:"ask_size,omitempty"`
@@ -65625,7 +65626,7 @@ func ParseGetFuturesVXQuotesResponse(rsp *http.Response) (*GetFuturesVXQuotesRes
 				AskTimestamp *int64 `json:"ask_timestamp,omitempty"`
 
 				// BidPrice The bid price is expressed per unit of the underlying asset, and you apply the contract multiplier to get the full contract value.
-				BidPrice *float64 `json:"bid_price,omitempty"`
+				BidPrice *decimal.Decimal `json:"bid_price,omitempty"`
 
 				// BidSize The quote size represents the number of futures contracts available at the given bid price.
 				BidSize *int32 `json:"bid_size,omitempty"`
@@ -65836,7 +65837,7 @@ func ParseGetFuturesVXSnapshotResponse(rsp *http.Response) (*GetFuturesVXSnapsho
 					LastUpdated *int64 `json:"last_updated,omitempty"`
 
 					// Price The price of the trade. This is the actual dollar value per whole contract of this trade. A trade of 100 contracts with a price of $2.00 would be worth a total dollar value of $200.00.
-					Price *float64 `json:"price,omitempty"`
+					Price *decimal.Decimal `json:"price,omitempty"`
 
 					// Size The total number of contracts exchanged between buyers and sellers on a given trade.
 					Size *int64 `json:"size,omitempty"`
@@ -65931,7 +65932,7 @@ func ParseGetFuturesVXTradesResponse(rsp *http.Response) (*GetFuturesVXTradesRes
 				Channel int32 `json:"channel"`
 
 				// Price The price of the trade. This is the actual dollar value per whole contract of this trade. A trade of 100 contracts with a price of $2.00 would be worth a total dollar value of $200.00.
-				Price *float64 `json:"price,omitempty"`
+				Price *decimal.Decimal `json:"price,omitempty"`
 
 				// ReportSequence The reporting sequence number.
 				ReportSequence int64 `json:"report_sequence"`
@@ -67335,7 +67336,7 @@ func ParseGetStocksFinancialsV1RatiosResponse(rsp *http.Response) (*GetStocksFin
 				MarketCap *float64 `json:"market_cap,omitempty"`
 
 				// Price Stock price used in ratio calculations, typically the closing price for the given date.
-				Price *float64 `json:"price,omitempty"`
+				Price *decimal.Decimal `json:"price,omitempty"`
 
 				// PriceToBook Price-to-book ratio, calculated as stock price divided by book value per share, comparing market value to book value.
 				PriceToBook *float64 `json:"price_to_book,omitempty"`
@@ -68137,10 +68138,10 @@ func ParseDeprecatedGetHistoricCryptoTradesResponse(rsp *http.Response) (*Deprec
 				// P The price of the trade. This is the actual dollar value per whole share of
 				// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 				// total dollar value of $200.00.
-				BidPrice float64 `json:"p"`
+				BidPrice decimal.Decimal `json:"p"`
 
 				// S The size of a trade (also known as volume).
-				BidSize float64 `json:"s"`
+				BidSize decimal.Decimal `json:"s"`
 
 				// T The Unix millisecond timestamp for the start of the aggregate window.
 				Timestamp int `json:"t"`
@@ -69981,10 +69982,10 @@ func ParseGetLastCryptoTradeResponse(rsp *http.Response) (*GetLastCryptoTradeRes
 				// Price The price of the trade. This is the actual dollar value per whole share of
 				// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 				// total dollar value of $200.00.
-				Price float64 `json:"price"`
+				Price decimal.Decimal `json:"price"`
 
 				// Size The size of a trade (also known as volume).
-				Size float64 `json:"size"`
+				Size decimal.Decimal `json:"size"`
 
 				// Timestamp The Unix millisecond timestamp.
 				Timestamp int `json:"timestamp"`
@@ -70234,10 +70235,10 @@ func ParseGetCryptoOpenCloseResponse(rsp *http.Response) (*GetCryptoOpenCloseRes
 				// P The price of the trade. This is the actual dollar value per whole share of
 				// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 				// total dollar value of $200.00.
-				BidPrice float64 `json:"p"`
+				BidPrice decimal.Decimal `json:"p"`
 
 				// S The size of a trade (also known as volume).
-				BidSize float64 `json:"s"`
+				BidSize decimal.Decimal `json:"s"`
 
 				// T The Unix millisecond timestamp for the start of the aggregate window.
 				Timestamp int `json:"t"`
@@ -70270,10 +70271,10 @@ func ParseGetCryptoOpenCloseResponse(rsp *http.Response) (*GetCryptoOpenCloseRes
 				// P The price of the trade. This is the actual dollar value per whole share of
 				// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 				// total dollar value of $200.00.
-				BidPrice float64 `json:"p"`
+				BidPrice decimal.Decimal `json:"p"`
 
 				// S The size of a trade (also known as volume).
-				BidSize float64 `json:"s"`
+				BidSize decimal.Decimal `json:"s"`
 
 				// T The Unix millisecond timestamp for the start of the aggregate window.
 				Timestamp int `json:"t"`
@@ -70700,7 +70701,7 @@ func ParseGetSnapshotSummaryResponse(rsp *http.Response) (*GetSnapshotSummaryRes
 				} `json:"options,omitempty"`
 
 				// Price The most up to date ticker price.
-				Price *float64 `json:"price,omitempty"`
+				Price *decimal.Decimal `json:"price,omitempty"`
 
 				// Session Comprehensive trading session metrics, detailing price changes, trading volume, and key price points (open, close, high, low) for the asset within the current trading day. Includes specific changes during early, regular, and late trading periods to enable detailed performance analysis and trend tracking.
 				Session *struct {
@@ -70741,7 +70742,7 @@ func ParseGetSnapshotSummaryResponse(rsp *http.Response) (*GetSnapshotSummaryRes
 					PreviousClose float64 `json:"previous_close"`
 
 					// Price The price of the most recent trade or bid price for this asset.
-					Price *float64 `json:"price,omitempty"`
+					Price *decimal.Decimal `json:"price,omitempty"`
 
 					// RegularTradingChange Today's change in regular trading hours, difference between current price and previous trading day's close, otherwise difference between today's close and previous day's close.
 					RegularTradingChange *float64 `json:"regular_trading_change,omitempty"`
@@ -71759,7 +71760,7 @@ func ParseGetLastStocksQuoteResponse(rsp *http.Response) (*GetLastStocksQuoteRes
 			RequestId string `json:"request_id"`
 			Results   *struct {
 				// P The ask price.
-				AskPrice *float64 `json:"P,omitempty"`
+				AskPrice *decimal.Decimal `json:"P,omitempty"`
 
 				// S The total number of shares available for sale at the current ask price.
 				AskSize *int `json:"S,omitempty"`
@@ -71780,7 +71781,7 @@ func ParseGetLastStocksQuoteResponse(rsp *http.Response) (*GetLastStocksQuoteRes
 				I *[]int32 `json:"i,omitempty"`
 
 				// P The bid price.
-				BidPrice *float64 `json:"p,omitempty"`
+				BidPrice *decimal.Decimal `json:"p,omitempty"`
 
 				// Q The sequence number represents the sequence in which message events happened.
 				// These are increasing and unique per ticker symbol, but will not always be
@@ -71862,7 +71863,7 @@ func ParseGetLastOptionsTradeResponse(rsp *http.Response) (*GetLastOptionsTradeR
 				// P The price of the trade. This is the actual dollar value per whole share of
 				// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 				// total dollar value of $200.00.
-				BidPrice float64 `json:"p"`
+				BidPrice decimal.Decimal `json:"p"`
 
 				// Q The sequence number represents the sequence in which message events happened.
 				// These are increasing and unique per ticker symbol, but will not always be
@@ -71873,7 +71874,7 @@ func ParseGetLastOptionsTradeResponse(rsp *http.Response) (*GetLastOptionsTradeR
 				R *int `json:"r,omitempty"`
 
 				// S The size of a trade (also known as volume).
-				BidSize *float64 `json:"s,omitempty"`
+				BidSize *decimal.Decimal `json:"s,omitempty"`
 
 				// T The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this message from the exchange which produced it.
 				Timestamp int `json:"t"`
@@ -71950,7 +71951,7 @@ func ParseGetLastStocksTradeResponse(rsp *http.Response) (*GetLastStocksTradeRes
 				// P The price of the trade. This is the actual dollar value per whole share of
 				// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 				// total dollar value of $200.00.
-				BidPrice float64 `json:"p"`
+				BidPrice decimal.Decimal `json:"p"`
 
 				// Q The sequence number represents the sequence in which message events happened.
 				// These are increasing and unique per ticker symbol, but will not always be
@@ -71961,7 +71962,7 @@ func ParseGetLastStocksTradeResponse(rsp *http.Response) (*GetLastStocksTradeRes
 				R *int `json:"r,omitempty"`
 
 				// S The size of a trade (also known as volume).
-				BidSize *float64 `json:"s,omitempty"`
+				BidSize *decimal.Decimal `json:"s,omitempty"`
 
 				// T The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this message from the exchange which produced it.
 				Timestamp int `json:"t"`
@@ -72157,10 +72158,10 @@ func ParseGetCryptoSnapshotTickersResponse(rsp *http.Response) (*GetCryptoSnapsh
 					// P The price of the trade. This is the actual dollar value per whole share of
 					// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 					// total dollar value of $200.00.
-					BidPrice float64 `json:"p"`
+					BidPrice decimal.Decimal `json:"p"`
 
 					// S The size (volume) of the trade.
-					BidSize float32 `json:"s"`
+					BidSize decimal.Decimal `json:"s"`
 
 					// T The millisecond accuracy timestamp. This is the timestamp of when the trade was generated at the exchange.
 					Timestamp int `json:"t"`
@@ -72307,10 +72308,10 @@ func ParseGetCryptoSnapshotTickerResponse(rsp *http.Response) (*GetCryptoSnapsho
 					// P The price of the trade. This is the actual dollar value per whole share of
 					// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 					// total dollar value of $200.00.
-					BidPrice float64 `json:"p"`
+					BidPrice decimal.Decimal `json:"p"`
 
 					// S The size (volume) of the trade.
-					BidSize float32 `json:"s"`
+					BidSize decimal.Decimal `json:"s"`
 
 					// T The millisecond accuracy timestamp. This is the timestamp of when the trade was generated at the exchange.
 					Timestamp int `json:"t"`
@@ -72417,7 +72418,7 @@ func ParseDeprecatedGetCryptoSnapshotTickerBookResponse(rsp *http.Response) (*De
 				AskCount float64 `json:"askCount"`
 				Asks     []struct {
 					// P The price of this book level.
-					BidPrice float64 `json:"p"`
+					BidPrice decimal.Decimal `json:"p"`
 
 					// X A map of the exchange ID to number of shares at this price level.
 					// <br />
@@ -72442,7 +72443,7 @@ func ParseDeprecatedGetCryptoSnapshotTickerBookResponse(rsp *http.Response) (*De
 				BidCount float64 `json:"bidCount"`
 				Bids     []struct {
 					// P The price of this book level.
-					BidPrice float64 `json:"p"`
+					BidPrice decimal.Decimal `json:"p"`
 
 					// X A map of the exchange ID to number of shares at this price level.
 					// <br />
@@ -72544,10 +72545,10 @@ func ParseGetCryptoSnapshotDirectionResponse(rsp *http.Response) (*GetCryptoSnap
 					// P The price of the trade. This is the actual dollar value per whole share of
 					// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 					// total dollar value of $200.00.
-					BidPrice float64 `json:"p"`
+					BidPrice decimal.Decimal `json:"p"`
 
 					// S The size (volume) of the trade.
-					BidSize float32 `json:"s"`
+					BidSize decimal.Decimal `json:"s"`
 
 					// T The millisecond accuracy timestamp. This is the timestamp of when the trade was generated at the exchange.
 					Timestamp int `json:"t"`
@@ -73079,13 +73080,13 @@ func ParseGetStocksSnapshotTickersResponse(rsp *http.Response) (*GetStocksSnapsh
 				// LastQuote The most recent quote for this ticker.  This is only returned if your current plan includes quotes.
 				LastQuote *struct {
 					// P The ask price.
-					AskPrice float64 `json:"P"`
+					AskPrice decimal.Decimal `json:"P"`
 
 					// S The ask size in lots.
 					AskSize int `json:"S"`
 
 					// P The bid price.
-					BidPrice float64 `json:"p"`
+					BidPrice decimal.Decimal `json:"p"`
 
 					// S The bid size in lots.
 					BidSize int `json:"s"`
@@ -73111,7 +73112,7 @@ func ParseGetStocksSnapshotTickersResponse(rsp *http.Response) (*GetStocksSnapsh
 					// P The price of the trade. This is the actual dollar value per whole share of
 					// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 					// total dollar value of $200.00.
-					BidPrice float64 `json:"p"`
+					BidPrice decimal.Decimal `json:"p"`
 
 					// S The size (volume) of the trade.
 					BidSize int `json:"s"`
@@ -73270,13 +73271,13 @@ func ParseGetStocksSnapshotTickerResponse(rsp *http.Response) (*GetStocksSnapsho
 				// LastQuote The most recent quote for this ticker.  This is only returned if your current plan includes quotes.
 				LastQuote *struct {
 					// P The ask price.
-					AskPrice float64 `json:"P"`
+					AskPrice decimal.Decimal `json:"P"`
 
 					// S The ask size in lots.
 					AskSize int `json:"S"`
 
 					// P The bid price.
-					BidPrice float64 `json:"p"`
+					BidPrice decimal.Decimal `json:"p"`
 
 					// S The bid size in lots.
 					BidSize int `json:"s"`
@@ -73302,7 +73303,7 @@ func ParseGetStocksSnapshotTickerResponse(rsp *http.Response) (*GetStocksSnapsho
 					// P The price of the trade. This is the actual dollar value per whole share of
 					// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 					// total dollar value of $200.00.
-					BidPrice float64 `json:"p"`
+					BidPrice decimal.Decimal `json:"p"`
 
 					// S The size (volume) of the trade.
 					BidSize int `json:"s"`
@@ -73458,13 +73459,13 @@ func ParseGetStocksSnapshotDirectionResponse(rsp *http.Response) (*GetStocksSnap
 				// LastQuote The most recent quote for this ticker.  This is only returned if your current plan includes quotes.
 				LastQuote *struct {
 					// P The ask price.
-					AskPrice float64 `json:"P"`
+					AskPrice decimal.Decimal `json:"P"`
 
 					// S The ask size in lots.
 					AskSize int `json:"S"`
 
 					// P The bid price.
-					BidPrice float64 `json:"p"`
+					BidPrice decimal.Decimal `json:"p"`
 
 					// S The bid size in lots.
 					BidSize int `json:"s"`
@@ -73490,7 +73491,7 @@ func ParseGetStocksSnapshotDirectionResponse(rsp *http.Response) (*GetStocksSnap
 					// P The price of the trade. This is the actual dollar value per whole share of
 					// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 					// total dollar value of $200.00.
-					BidPrice float64 `json:"p"`
+					BidPrice decimal.Decimal `json:"p"`
 
 					// S The size (volume) of the trade.
 					BidSize int `json:"s"`
@@ -73640,7 +73641,7 @@ func ParseDeprecatedGetHistoricStocksQuotesResponse(rsp *http.Response) (*Deprec
 				Y int `json:"y"`
 				// Embedded fields due to inline allOf schema
 				// P The ask price.
-				AskPrice float64 `json:"P"`
+				AskPrice decimal.Decimal `json:"P"`
 
 				// S The ask size. This represents the number of round lot orders at the given ask price. The normal round lot size is 100 shares. An ask size of 2 means there are 200 shares available to purchase at the given ask price.
 				AskSize int `json:"S"`
@@ -73656,7 +73657,7 @@ func ParseDeprecatedGetHistoricStocksQuotesResponse(rsp *http.Response) (*Deprec
 				I []int `json:"i"`
 
 				// P The bid price.
-				BidPrice float64 `json:"p"`
+				BidPrice decimal.Decimal `json:"p"`
 
 				// S The bid size. This represents the number of round lot orders at the given bid price. The normal round lot size is 100 shares. A bid size of 2 means there are 200 shares for purchase at the given bid price.
 				BidSize int `json:"s"`
@@ -73744,13 +73745,13 @@ func ParseDeprecatedGetHistoricStocksTradesResponse(rsp *http.Response) (*Deprec
 				// P The price of the trade. This is the actual dollar value per whole share of
 				// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 				// total dollar value of $200.00.
-				BidPrice float64 `json:"p"`
+				BidPrice decimal.Decimal `json:"p"`
 
 				// R The ID for the Trade Reporting Facility where the trade took place.
 				R int `json:"r"`
 
 				// S The size of a trade (also known as volume).
-				BidSize float64 `json:"s"`
+				BidSize decimal.Decimal `json:"s"`
 
 				// X The exchange ID. See <a href="https://massive.com/docs/rest/stocks/market-operations/exchanges" alt="Exchanges">Exchanges</a> for Massive's mapping of exchange IDs.
 				BidExchange int `json:"x"`
@@ -73800,13 +73801,13 @@ func ParseGetForexQuotesResponse(rsp *http.Response) (*GetForexQuotesResponse, e
 				AskExchange *int `json:"ask_exchange,omitempty"`
 
 				// AskPrice The ask price.
-				AskPrice *float64 `json:"ask_price,omitempty"`
+				AskPrice *decimal.Decimal `json:"ask_price,omitempty"`
 
 				// BidExchange The bid exchange ID
 				BidExchange *int `json:"bid_exchange,omitempty"`
 
 				// BidPrice The bid price.
-				BidPrice *float64 `json:"bid_price,omitempty"`
+				BidPrice *decimal.Decimal `json:"bid_price,omitempty"`
 
 				// ParticipantTimestamp The nanosecond Exchange Unix Timestamp. This is the timestamp of when the quote was generated at the exchange.
 				ParticipantTimestamp int64 `json:"participant_timestamp"`
@@ -73856,19 +73857,19 @@ func ParseGetOptionsQuotesResponse(rsp *http.Response) (*GetOptionsQuotesRespons
 				AskExchange *int `json:"ask_exchange,omitempty"`
 
 				// AskPrice The ask price.
-				AskPrice *float64 `json:"ask_price,omitempty"`
+				AskPrice *decimal.Decimal `json:"ask_price,omitempty"`
 
 				// AskSize The ask size. This represents the number of round lot orders at the given ask price. The normal round lot size is 100 shares. An ask size of 2 means there are 200 shares available to purchase at the given ask price.
-				AskSize *float64 `json:"ask_size,omitempty"`
+				AskSize *decimal.Decimal `json:"ask_size,omitempty"`
 
 				// BidExchange The bid exchange ID
 				BidExchange *int `json:"bid_exchange,omitempty"`
 
 				// BidPrice The bid price.
-				BidPrice *float64 `json:"bid_price,omitempty"`
+				BidPrice *decimal.Decimal `json:"bid_price,omitempty"`
 
 				// BidSize The bid size. This represents the number of round lot orders at the given bid price. The normal round lot size is 100 shares. A bid size of 2 means there are 200 shares for purchase at the given bid price.
-				BidSize *float64 `json:"bid_size,omitempty"`
+				BidSize *decimal.Decimal `json:"bid_size,omitempty"`
 
 				// SequenceNumber The sequence number represents the sequence in which quote events happened.
 				// These are increasing and unique per ticker symbol, but will not always be
@@ -73923,19 +73924,19 @@ func ParseGetStocksQuotesResponse(rsp *http.Response) (*GetStocksQuotesResponse,
 				AskExchange *int `json:"ask_exchange,omitempty"`
 
 				// AskPrice The ask price.
-				AskPrice *float64 `json:"ask_price,omitempty"`
+				AskPrice *decimal.Decimal `json:"ask_price,omitempty"`
 
 				// AskSize The total number of shares available for sale at the current ask price.
-				AskSize *float64 `json:"ask_size,omitempty"`
+				AskSize *decimal.Decimal `json:"ask_size,omitempty"`
 
 				// BidExchange The bid exchange ID
 				BidExchange *int `json:"bid_exchange,omitempty"`
 
 				// BidPrice The bid price.
-				BidPrice *float64 `json:"bid_price,omitempty"`
+				BidPrice *decimal.Decimal `json:"bid_price,omitempty"`
 
 				// BidSize The total number of shares that buyers want to purchase at the current bid price.
-				BidSize *float64 `json:"bid_size,omitempty"`
+				BidSize *decimal.Decimal `json:"bid_size,omitempty"`
 
 				// Conditions A list of condition codes.
 				Conditions *[]int32 `json:"conditions,omitempty"`
@@ -75109,7 +75110,7 @@ func ParseGetSnapshotsResponse(rsp *http.Response) (*GetSnapshotsResponse, error
 					AskExchange *int `json:"ask_exchange,omitempty"`
 
 					// AskSize The ask size. This represents the number of round lot orders at the given ask price. The normal round lot size is 100 shares. An ask size of 2 means there are 200 shares available to purchase at the given ask price.
-					AskSize *float64 `json:"ask_size,omitempty"`
+					AskSize *decimal.Decimal `json:"ask_size,omitempty"`
 
 					// Bid The bid price.
 					Bid float64 `json:"bid"`
@@ -75118,7 +75119,7 @@ func ParseGetSnapshotsResponse(rsp *http.Response) (*GetSnapshotsResponse, error
 					BidExchange *int `json:"bid_exchange,omitempty"`
 
 					// BidSize The bid size. This represents the number of round lot orders at the given bid price. The normal round lot size is 100 shares. A bid size of 2 means there are 200 shares for purchase at the given bid price.
-					BidSize *float64 `json:"bid_size,omitempty"`
+					BidSize *decimal.Decimal `json:"bid_size,omitempty"`
 
 					// LastUpdated The nanosecond timestamp of when this information was updated.
 					LastUpdated int64 `json:"last_updated"`
@@ -75153,7 +75154,7 @@ func ParseGetSnapshotsResponse(rsp *http.Response) (*GetSnapshotsResponse, error
 					// Price The price of the trade. This is the actual dollar value per whole share of
 					// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 					// total dollar value of $200.00.
-					Price float64 `json:"price"`
+					Price decimal.Decimal `json:"price"`
 
 					// SipTimestamp The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this trade from the exchange which produced it.
 					SipTimestamp *int64 `json:"sip_timestamp,omitempty"`
@@ -75220,7 +75221,7 @@ func ParseGetSnapshotsResponse(rsp *http.Response) (*GetSnapshotsResponse, error
 					PreviousClose float64 `json:"previous_close"`
 
 					// Price The price of the most recent trade or bid price for this asset.
-					Price *float64 `json:"price,omitempty"`
+					Price *decimal.Decimal `json:"price,omitempty"`
 
 					// RegularTradingChange Today's change in regular trading hours, difference between current price and previous trading day's close, otherwise difference between today's close and previous day's close.
 					RegularTradingChange *float64 `json:"regular_trading_change,omitempty"`
@@ -75250,7 +75251,7 @@ func ParseGetSnapshotsResponse(rsp *http.Response) (*GetSnapshotsResponse, error
 					LastUpdated *int64 `json:"last_updated,omitempty"`
 
 					// Price The price of the trade. This is the actual dollar value per whole share of this trade. A trade of 100 shares with a price of $2.00 would be worth a total dollar value of $200.00.
-					Price *float64 `json:"price,omitempty"`
+					Price *decimal.Decimal `json:"price,omitempty"`
 
 					// Ticker The ticker symbol for the contract's underlying asset.
 					Ticker string `json:"ticker"`
@@ -75486,7 +75487,7 @@ func ParseGetOptionsChainResponse(rsp *http.Response) (*GetOptionsChainResponse,
 					AskExchange *int32 `json:"ask_exchange,omitempty"`
 
 					// AskSize The ask size.
-					AskSize float64 `json:"ask_size"`
+					AskSize decimal.Decimal `json:"ask_size"`
 
 					// Bid The bid price.
 					Bid float64 `json:"bid"`
@@ -75495,7 +75496,7 @@ func ParseGetOptionsChainResponse(rsp *http.Response) (*GetOptionsChainResponse,
 					BidExchange *int32 `json:"bid_exchange,omitempty"`
 
 					// BidSize The bid size.
-					BidSize float64 `json:"bid_size"`
+					BidSize decimal.Decimal `json:"bid_size"`
 
 					// LastUpdated The nanosecond timestamp of when this information was updated.
 					LastUpdated *int64 `json:"last_updated,omitempty"`
@@ -75518,7 +75519,7 @@ func ParseGetOptionsChainResponse(rsp *http.Response) (*GetOptionsChainResponse,
 					// Price The price of the trade. This is the actual dollar value per whole share of
 					// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 					// total dollar value of $200.00.
-					Price float64 `json:"price"`
+					Price decimal.Decimal `json:"price"`
 
 					// SipTimestamp The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this trade from the exchange which produced it.
 					SipTimestamp int64 `json:"sip_timestamp"`
@@ -75542,7 +75543,7 @@ func ParseGetOptionsChainResponse(rsp *http.Response) (*GetOptionsChainResponse,
 					LastUpdated *int64 `json:"last_updated,omitempty"`
 
 					// Price The price of the trade. This is the actual dollar value per whole share of this trade. A trade of 100 shares with a price of $2.00 would be worth a total dollar value of $200.00.
-					Price *float64 `json:"price,omitempty"`
+					Price *decimal.Decimal `json:"price,omitempty"`
 
 					// Ticker The ticker symbol for the contract's underlying asset.
 					Ticker string `json:"ticker"`
@@ -75686,7 +75687,7 @@ func ParseGetOptionContractResponse(rsp *http.Response) (*GetOptionContractRespo
 					AskExchange *int32 `json:"ask_exchange,omitempty"`
 
 					// AskSize The ask size.
-					AskSize float64 `json:"ask_size"`
+					AskSize decimal.Decimal `json:"ask_size"`
 
 					// Bid The bid price.
 					Bid float64 `json:"bid"`
@@ -75695,7 +75696,7 @@ func ParseGetOptionContractResponse(rsp *http.Response) (*GetOptionContractRespo
 					BidExchange *int32 `json:"bid_exchange,omitempty"`
 
 					// BidSize The bid size.
-					BidSize float64 `json:"bid_size"`
+					BidSize decimal.Decimal `json:"bid_size"`
 
 					// LastUpdated The nanosecond timestamp of when this information was updated.
 					LastUpdated *int64 `json:"last_updated,omitempty"`
@@ -75718,7 +75719,7 @@ func ParseGetOptionContractResponse(rsp *http.Response) (*GetOptionContractRespo
 					// Price The price of the trade. This is the actual dollar value per whole share of
 					// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 					// total dollar value of $200.00.
-					Price float64 `json:"price"`
+					Price decimal.Decimal `json:"price"`
 
 					// SipTimestamp The nanosecond accuracy SIP Unix Timestamp. This is the timestamp of when the SIP received this trade from the exchange which produced it.
 					SipTimestamp int64 `json:"sip_timestamp"`
@@ -75742,7 +75743,7 @@ func ParseGetOptionContractResponse(rsp *http.Response) (*GetOptionContractRespo
 					LastUpdated *int64 `json:"last_updated,omitempty"`
 
 					// Price The price of the trade. This is the actual dollar value per whole share of this trade. A trade of 100 shares with a price of $2.00 would be worth a total dollar value of $200.00.
-					Price *float64 `json:"price,omitempty"`
+					Price *decimal.Decimal `json:"price,omitempty"`
 
 					// Ticker The ticker symbol for the contract's underlying asset.
 					Ticker string `json:"ticker"`
@@ -75808,13 +75809,13 @@ func ParseGetCryptoTradesResponse(rsp *http.Response) (*GetCryptoTradesResponse,
 				ParticipantTimestamp *int64 `json:"participant_timestamp,omitempty"`
 
 				// Price The price of the trade in the base currency of the crypto pair.
-				Price float64 `json:"price"`
+				Price decimal.Decimal `json:"price"`
 
 				// ReceivedTimestamp The nanosecond accuracy timestamp of when the tick was received by Massive.
 				ReceivedTimestamp *int64 `json:"received_timestamp,omitempty"`
 
 				// Size The size of a trade (also known as volume).
-				Size float64 `json:"size"`
+				Size decimal.Decimal `json:"size"`
 			} `json:"results,omitempty"`
 
 			// Status The status of this request's response.
@@ -75872,7 +75873,7 @@ func ParseGetOptionsTradesResponse(rsp *http.Response) (*GetOptionsTradesRespons
 				// Price The price of the trade. This is the actual dollar value per whole share of
 				// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 				// total dollar value of $200.00.
-				Price float64 `json:"price"`
+				Price decimal.Decimal `json:"price"`
 
 				// SequenceNumber The sequence number represents the sequence in which message events happened. These are increasing and unique per ticker symbol, but will not always be consecutive (e.g. 1, 2, 6, 9, 10, 11).
 				SequenceNumber *int64 `json:"sequence_number,omitempty"`
@@ -75881,7 +75882,7 @@ func ParseGetOptionsTradesResponse(rsp *http.Response) (*GetOptionsTradesRespons
 				SipTimestamp int64 `json:"sip_timestamp"`
 
 				// Size The size of a trade (also known as volume).
-				Size float64 `json:"size"`
+				Size decimal.Decimal `json:"size"`
 			} `json:"results,omitempty"`
 
 			// Status The status of this request's response.
@@ -75948,7 +75949,7 @@ func ParseGetStocksTradesResponse(rsp *http.Response) (*GetStocksTradesResponse,
 				// Price The price of the trade. This is the actual dollar value per whole share of
 				// this trade. A trade of 100 shares with a price of $2.00 would be worth a
 				// total dollar value of $200.00.
-				Price float64 `json:"price"`
+				Price decimal.Decimal `json:"price"`
 
 				// SequenceNumber The sequence number represents the sequence in which trade events happened.
 				// These are increasing and unique per ticker symbol, but will not always be
@@ -75959,7 +75960,7 @@ func ParseGetStocksTradesResponse(rsp *http.Response) (*GetStocksTradesResponse,
 				SipTimestamp int64 `json:"sip_timestamp"`
 
 				// Size The size of a trade (also known as volume).
-				Size float64 `json:"size"`
+				Size decimal.Decimal `json:"size"`
 
 				// Tape There are 3 tapes which define which exchange the ticker is listed on. These are integers in our objects which represent the letter of the alphabet. Eg: 1 = A, 2 = B, 3 = C.
 				// * Tape A is NYSE listed securities
